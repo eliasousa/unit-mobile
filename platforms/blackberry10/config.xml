@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+        version="1.0.0"
+        id="br.com.unitmobile">
+
+    <name>Unit Mobile</name>
+    <content src="local:///index.html" />
+    <author rim:copyright="2013"
+            href="http://twitter.com/eliasdevelop"
+            email = "@eliasdevelop">Humberto Elias</author>
+    <description>Aplicativo UnitMobile for BlackBerry10</description>
+    <access uri="*" subdomains="true" />
+
+    <icon src="icon.png"/>  
+    
+    <feature id="blackberry.app">
+      <param name="orientation" value="auto" />
+      <param name="websecurity" value="disable" />
+    </feature>
+
+    <feature id="blackberry.io" required="true" version="1.0.0.0"></feature>
+    <feature id="blackberry.io.filetransfer" required="true" version="1.0.0.0"></feature>
+    <feature id="blackberry.invoke" required="true" version="1.0.0.0"></feature>
+    
+    <rim:permissions>
+        <rim:permit>access_shared</rim:permit>
+    </rim:permissions>
+</widget>

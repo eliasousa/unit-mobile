@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Unit Mobile</title>	
+
+<!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="styles/kendo.common.min.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/kendo.mobile.all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/css.css">
+    <link rel="stylesheet" type="text/css" href="styles/tabela.css">
+<!-- /CSS -->   
+
+<body id="tudoTodo">
+	<!-- LOGIN -->
+	<div data-role="view" data-layout="overview-layout" id="login">
+        <header data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title">Unit Mobile</span>
+            </div>
+        </header>
+        <!-- CONTEUDO -->
+        <ul data-role="listview" data-style="inset">
+            <li>
+                <label for="matricula">Matricula
+                    <input id="matricula" type="number" placeholder="Matricula"/>
+                </label>
+            </li>
+            <li>
+                <label for="senha">Senha
+                    <input id="senha" type="text" placeholder="Senha"/> 
+                </label>    
+            </li>  
+            <li>  
+                <label>Salvar credenciais 
+                    <input id="salvarCredenciais" type="checkbox"/>
+                </label>
+            </li>
+        </ul>
+        <a id="btnEntrar" data-role="button" data-click="autenticar" >Entrar</a>     
+    </div>
+	<!-- /LOGIN -->
+
+    <!-- MENU -->
+    <div data-role="view" data-layout="overview-layout" id="menu">
+        <header data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title">Magister</span>
+            </div>
+        </header>
+        <!-- CONTEUDO -->
+        <ul data-role="listview" data-style="inset" class="parent" data-click="menuClick">
+            <li>
+                <a id="menuNotasFaltas" onclick="carregarNotasFaltas();">
+                    <span class="icone" style="background-image: url('images/notasFaltas.png')"></span>
+                    <h2>Notas e Faltas</h2>
+                </a>
+            </li>
+            <li>
+                <a id="menuHorario" onclick="carregarHorario();">
+                    <span class="icone" style="background-image: url('images/horario.png')"></span>
+                    <h2>Horário</h2>
+                </a>
+            </li>
+            <li>
+                <a id="menuAvisos" onclick="carregarAvisos();">
+                    <span class="icone" style="background-image: url('images/avisos.png')"></span>
+                    <h2>Avisos</h2>
+                </a>
+            </li>
+            <li>
+                <a id="materialAula" onclick="carregarMaterialAula();">
+                    <span class="icone" style="background-image: url('images/arquivo.png')"></span>
+                    <h2>Material de Aula</h2>
+                </a>
+            </li>
+            <li id="itemExCred" style="display:none">
+                <a id="excluirCredenciais" onclick="excluirCredenciais();">
+                    <span class="icone" style="background-image: url('images/removerCred.png')"></span>
+                    <h2>Excluir Credenciais</h2>
+                </a>
+            </li>
+        </ul>     
+        <!-- /CONTEUDO -->
+        <footer data-role="footer">
+            <div data-role="navbar">
+                <span data-role="view-title">@eliasdevelop</span>
+            </div> 
+        </footer>
+    </div>
+    <!-- /MENU -->
+
+    <!-- NOTAS/FALTAS -->
+    <div data-role="view" data-layout="overview-layout" id="notasFaltas">
+        <header data-role="header">
+            <div data-role="navbar">
+                <a data-role="backbutton" data-align="left" >Voltar</a>
+                <span data-role="view-title">Notas e Faltas</span>
+            </div>
+        </header>
+        <!-- CONTEUDO -->
+        <div class="tudo" id="listaNotasFaltas" align="center">
+            <!--DINAMICO-->
+        </div>
+        <!-- /CONTEUDO -->
+        <footer data-role="footer">
+            <div data-role="navbar">
+                <span data-role="view-title">@eliasdevelop</span>
+            </div> 
+        </footer>
+    </div>
+    <!-- /NOTAS/FALTAS -->
+
+     <!-- HORARIO -->
+    <div data-role="view" data-layout="overview-layout" id="horario">
+        <header data-role="header">
+            <div data-role="navbar">
+                <a data-role="backbutton" data-align="left" >Voltar</a>
+                <span data-role="view-title">Horário</span>
+            </div>
+        </header>
+        <!-- CONTEUDO -->
+        <div class="km-listview-wrapper tudo">
+            <ul data-role="listview" data-style="inset" data-type="group" class="km-listview km-listgroupinset" id="listaHorario">
+                <!--DINAMICO-->
+            </ul>
+        </div>
+        <!-- /CONTEUDO -->
+        <footer data-role="footer">
+            <div data-role="navbar">
+                <span data-role="view-title">@eliasdevelop</span>
+            </div> 
+        </footer>
+    </div>
+    <!-- /HORARIO -->
+
+    <!-- AVISOS -->
+    <div data-role="view" data-layout="overview-layout" id="avisos">
+        <header data-role="header">
+            <div data-role="navbar">
+                <a data-role="backbutton" data-align="left" >Voltar</a>
+                <span data-role="view-title">Avisos</span>
+            </div>
+        </header>
+        <!-- CONTEUDO -->
+        <div class="tudo">
+            <ul data-role="listview" data-style="inset" data-type="group">
+                <li>
+                    Avisos dos Professores
+                    <ul id="listaAvisos">
+                        <!-- DINAMICO -->
+                    </ul>
+                </li>
+            </ul>    
+        </div>
+        <div data-role="modalview" id="modalAviso" style="width: 100%; height: 95%;">
+            <div data-role="header">
+                <div data-role="navbar">
+                    <span>Avisos</span>
+                    <a onclick='$("#modalAviso").data("kendoMobileModalView").close();' data-role="button" data-align="left">Voltar</a>
+                </div>
+            </div>
+            <p style="text-align:justify" id="conteudoAviso">
+            </p>
+        </div>
+        <!-- /CONTEUDO -->
+        <footer data-role="footer">
+            <div data-role="navbar">
+                <span data-role="view-title">@eliasdevelop</span>
+            </div> 
+        </footer>
+    </div>
+    <!-- /AVISOS -->
+
+    <!-- MATERIALAULA -->
+    <div data-role="view" data-layout="overview-layout" id="materialAula">
+        <header data-role="header">
+            <div data-role="navbar">
+                <a data-role="backbutton" data-align="left" >Voltar</a>
+                <span data-role="view-title">Material de Aula</span>
+            </div>
+        </header>
+        <!-- CONTEUDO -->
+        <ul data-role="listview" data-style="inset" data-type="group">
+            <li>
+                Professores
+                <ul id="listaMaterialAula">
+                    <!-- DINAMICO -->
+                </ul>
+            </li>
+        </ul>  
+        <!-- /CONTEUDO -->
+        <footer data-role="footer">
+            <div data-role="navbar">
+                <span data-role="view-title">@eliasdevelop</span>
+            </div> 
+        </footer>
+    </div>
+    <!-- /MATERIALAULA -->
+
+    <!-- MATERIALAULA ARQUIVOS -->
+    <div data-role="view" data-layout="overview-layout" id="materialAulaArquivos">
+        <header data-role="header">
+            <div data-role="navbar">
+                <a data-role="backbutton" data-align="left" >Voltar</a>
+                <span data-role="view-title">Material de Aula</span>
+            </div>
+        </header>
+        <!-- CONTEUDO -->
+        <div id="progressbar1" style="display:none"></div>
+        <ul data-role="listview" data-style="inset" data-type="group">
+            <li>
+                <div class="km-group-title" style="margin-top:-5px">
+                    <div class="km-text" id="tituloPasta">
+                        <!--DINAMICO -->
+                    </div>
+                </div>
+                <ul id="listaMaterialAulaArquivos">
+                    <!-- DINAMICO -->
+                </ul>
+            </li>
+        </ul>  
+        <!-- /CONTEUDO -->
+        <footer data-role="footer">
+            <div data-role="navbar">
+                <span data-role="view-title">@eliasdevelop</span>
+            </div> 
+        </footer>
+    </div>
+    <!-- /MATERIALAULA ARQUIVOS -->
+
+    <!-- MATERIALAULA ARQUIVOS -->
+    <div data-role="view" data-layout="overview-layout" id="materialAulaArquivos2">
+        <header data-role="header">
+            <div data-role="navbar">
+                <a data-role="backbutton" data-align="left" >Voltar</a>
+                <span data-role="view-title">Material de Aula</span>
+            </div>
+        </header>
+        <!-- CONTEUDO -->
+        <div id="progressbar2" style="display:none"></div>
+        <ul data-role="listview" data-style="inset" data-type="group">
+            <li>
+                <div class="km-group-title" style="margin-top:-5px">
+                    <div class="km-text" id="tituloPasta2">
+                        <!--DINAMICO -->
+                    </div>
+                </div>
+                <ul id="listaMaterialAulaArquivos2">
+                    <!-- DINAMICO -->
+                </ul>
+            </li>
+        </ul>  
+        <!-- /CONTEUDO -->
+        <footer data-role="footer">
+            <div data-role="navbar">
+                <span data-role="view-title">@eliasdevelop</span>
+            </div> 
+        </footer>
+    </div>
+    <!-- /MATERIALAULA ARQUIVOS -->
+
+	<!-- JS -->
+    <script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/kendo.mobile.min.js"></script>
+    <script type="text/javascript" src="js/js.js"></script>
+    <!-- /JS -->
+
+    <!-- LOAD KENDOUI -->
+	<script>
+    var app = new kendo.mobile.Application($(document.body),{
+        skin: "flat",
+        transition: "slide",
+
+        init: function() {
+           if(localStorage.getItem('salvarCredenciais') == "true"){
+              autenticar();
+              $('#itemExCred').attr('style','display:block');
+           }
+           
+        }
+     });
+	</script>
+	<!-- /LOAD KENDOUI -->
+</body>
+</html>

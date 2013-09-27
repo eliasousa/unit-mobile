@@ -1,0 +1,48 @@
+#btnEntrar{
+	display: block;
+    text-align: center;
+    margin: .6em .8em 0;
+    font-size: 1.1em;
+    margin-top: 20px;
+}
+
+.icone{
+	width: 3em;
+    height: 3em;
+    margin: 0;
+    display: inline-block;
+    -webkit-background-size: auto 100%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-transform: translatez(0);
+    vertical-align: middle;
+}
+
+.iconeArquivos{
+    width: 2em;
+    height: 2em;
+    margin: 0;
+    display: inline-block;
+    -webkit-background-size: auto 100%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-transform: translatez(0);
+    vertical-align: middle;
+}
+
+.parent:after {
+	display: inline-block;
+	border-color: #ffffff;
+}
+
+h2{
+	display: inline-block;
+    margin: .5em;
+    font-size: 1.1em;
+}
+
+.lista{
+    border-bottom: 1px solid #5191C6;
+}
