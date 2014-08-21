@@ -1,61 +1,58 @@
 .tudo{
-	width: 100%;
+  width: 100%;
 }
 
 .tabela{
-	width: 90%;
-	margin-top: 10px;
-	border-collapse: collapse;
+  width: 90%;
+  margin-top: 10px;
+  border-collapse: collapse;
 }
 
 .titulo{
-	padding-top: 2px;
-	padding-bottom: 2px;
-	border-top: 1px solid black;
-	border-right: 1px solid black;
-	border-left: 1px solid black;
-	font-family: "Helvética Neue";
-	font-size: 17px;
-	font-weight: bold;
-	text-align: center;
-	background: #5191C6;
-	color:white;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  font-family: "Helvética Neue";
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+  background: #5191C6;
+  color:white;
 }
 
 .unidades{
-	padding-top: 2px;
-	padding-bottom: 2px;
-	font-family: "Helvética Neue";
-	text-align:center;
-	font-weight: bold;
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
-
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-family: "Helvética Neue";
+  text-align:center;
+  font-weight: bold;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .notasFaltas{
-	padding-top: 2px;
-	padding-bottom: 2px;
-	font-family: "Helvética Neue";
-	text-align:center;
-	font-weight: bold;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-family: "Helvética Neue";
+  text-align:center;
+  font-weight: bold;
 }
 
 .resultados{
-	padding-top: 2px;
-	padding-bottom: 2px;
-	font-family: "Helvética Neue";
-	text-align:center;
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-family: "Helvética Neue";
+  text-align:center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .ladoEsquerdo{
-	border-left: 1px solid black;
+  border-left: 1px solid black;
 }
 
 .ladoDireito{
-	border-right: 1px solid black;
-
+  border-right: 1px solid black;
 }
-
